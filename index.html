@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+		<script src="jquery-1.7.2.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				function tap(btn,ull,lii,tt) {
+					$(btn).click(function() {
+						$(ull).css("display", "block");
+						$(btn).addClass("fa fa-caret-up")
+//						$("html,body").click(function(e){
+//							if(e.target.className.indexOf(".d_2")==-1){
+//								$(ull).css("display", "block");
+//							}
+//						})
+						$(lii).click(function() {
+							$(btn).removeClass("fa fa-caret-up")
+							$(btn).addClass("fa fa-caret-down")
+							$(tt).val($(this).html());
+							$(ull).css("display", "none");
+						})
+					})
+				}
+				
+				tap("#btn","#d_2 ul","#d_2 ul li","#txt")
+				tap("#btn1","#d_3 ul","#d_3 ul li","#txt1")
+				
+			})
+		</script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.d_1{
+				margin: 0 auto;
+				width: 320px;
+				height: 320px;
+				background: rgba(0,0,0,0.5);
+				line-height: 40px;
+			}
+			.d_2{
+				position: relative;
+			}
+			.d_2 ul{
+				z-index: 999;
+				display: none;
+				position: absolute;
+				top: 30px;
+				background: white;
+			}
+			.d_2 ul li{
+				width: 200px;
+				height: 30px;
+				border: 1px solid #ccc;
+			}
+			.d_2{
+				color: #666;
+			}
+			.d_1{
+				color: white;
+				padding: 50px;
+			}
+			.sousuo{
+				width: 300px;
+				height: 60px;
+				border: 0;
+				background: #0094EF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d_1">
+			<div><h1>快速搜索消费贷款</h1></div>
+			<div><span>贷款金额</span><span>不足一万可用小数表示</span></div>
+			<div class="d_2" id="d_2">
+				<input type="text" id="txt" value="30万元"/><button class="fa fa-caret-down" id="btn"></button>
+				<ul>
+					<li>1万元</li>
+					<li>3万元</li>
+					<li>30万元</li>
+					<li>50万元</li>
+				</ul>
+			</div>
+			<p>贷款期限：</p>
+			<div class="d_2" id="d_3">
+				<input type="text" id="txt1" value="18个月"/><button class="fa fa-caret-down" id="btn1"></button>
+				<ul>
+					<li>1个月</li>
+					<li>3年</li>
+					<li>30年</li>
+					<li>50个月</li>
+				</ul>
+			</div>
+			<button class="sousuo">搜索一下</button>
+			<p>9164中信贷产品 2000家银行 1403家小贷公司</p>
+		</div>
+	</body>
+</html>
